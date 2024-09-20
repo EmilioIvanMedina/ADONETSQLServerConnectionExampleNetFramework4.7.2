@@ -41,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DabaBaseAccess.cs" />
+    <Compile Include="DataAccess\IDataBaseAcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ContactRepository.cs" />
+    <Compile Include="Repositories\ContactTypoRepository.cs" />
+    <Compile Include="Repositories\MenuItemReposiotory.cs" />
+    <Compile Include="Repositories\PageSubTitleRepository.cs" />
+    <Compile Include="Repositories\PageTitleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADONETSQLServerConnection.Application\ADONETSQLServerConnection.Application.csproj">
+      <Project>{046DC2F3-334A-47FE-AFA8-773D9D9D0014}</Project>
+      <Name>ADONETSQLServerConnection.Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
