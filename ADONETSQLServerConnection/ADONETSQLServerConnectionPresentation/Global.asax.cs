@@ -1,9 +1,12 @@
-﻿using ADONETSQLServerConnectionPresentation.App_Start;
+﻿using ADONETSQLServerConnection.Application.Configurations;
+using ADONETSQLServerConnection.Application.Interfaces;
+using ADONETSQLServerConnection.DataAccess.DataAccess;
+using ADONETSQLServerConnection.DataAccess.Repositories;
+using ADONETSQLServerConnectionPresentation.App_Start;
+using ADONETSQLServerConnectionPresentation.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -11,7 +14,7 @@ using System.Web.Routing;
 
 namespace ADONETSQLServerConnectionPresentation
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         private static IServiceProvider _serviceProvider;
         protected void Application_Start()
@@ -31,7 +34,11 @@ namespace ADONETSQLServerConnectionPresentation
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ApplicationConfig>();
+            var connectionString = ConfigurationManager.ConnectionStrings["WebSiteDataBase"].ConnectionString;
+            services.AddSingleton<IApplicationConfig>(provider => new ApplicationConfig(connectionString));
+            services.AddScoped<IDataBaseAccess, DataBaseAccess>();
+            services.AddTransient<IContactRepository, ContactRepository>();
+            services.AddTransient<HomeController>();
         }
     }
 }

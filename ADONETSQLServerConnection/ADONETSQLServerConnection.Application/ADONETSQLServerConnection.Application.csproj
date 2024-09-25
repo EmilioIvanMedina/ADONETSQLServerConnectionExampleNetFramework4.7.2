@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\ApplicationConfig.cs" />
     <Compile Include="DTOs\ContactDTO.cs" />
     <Compile Include="DTOs\ContactTypeDTO.cs" />
     <Compile Include="DTOs\MenuItemDTO.cs" />
     <Compile Include="DTOs\PageSubTitleDTO.cs" />
     <Compile Include="DTOs\PageTitleDTO.cs" />
+    <Compile Include="Interfaces\IApplicationConfig.cs" />
     <Compile Include="Interfaces\IContactRepository.cs" />
     <Compile Include="Interfaces\IContactTypeRepository.cs" />
     <Compile Include="Interfaces\IMenuItemReposiotory.cs" />

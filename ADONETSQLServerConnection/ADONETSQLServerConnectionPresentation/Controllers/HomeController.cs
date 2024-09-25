@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ADONETSQLServerConnection.Application.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace ADONETSQLServerConnectionPresentation.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IContactRepository _contactRepository;
+
+        public HomeController(IContactRepository contactRepository)
+        {
+            _contactRepository = contactRepository;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -23,6 +31,8 @@ namespace ADONETSQLServerConnectionPresentation.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            var contacts = _contactRepository.GetAll();
 
             return View();
         }
