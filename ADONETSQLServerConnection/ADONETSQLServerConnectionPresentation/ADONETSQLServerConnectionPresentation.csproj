@@ -132,7 +132,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ApplicationConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MyDependencyResolver.cs" />
@@ -225,6 +224,16 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADONETSQLServerConnection.Application\ADONETSQLServerConnection.Application.csproj">
+      <Project>{046DC2F3-334A-47FE-AFA8-773D9D9D0014}</Project>
+      <Name>ADONETSQLServerConnection.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADONETSQLServerConnection.DataAccess\ADONETSQLServerConnection.DataAccess.csproj">
+      <Project>{802ff2f7-3096-4145-b0cc-1ea7bec310b1}</Project>
+      <Name>ADONETSQLServerConnection.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
