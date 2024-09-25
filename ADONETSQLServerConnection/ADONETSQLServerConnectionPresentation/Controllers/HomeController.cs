@@ -1,4 +1,5 @@
 ﻿using ADONETSQLServerConnection.Application.Interfaces;
+using ADONETSQLServerConnectionPresentation.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,11 +31,14 @@ namespace ADONETSQLServerConnectionPresentation.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            var vm = new ContactViewModle
+            {
+                Title = "Contact",
+                Message = "Your contact page.",
+                Contacts = _contactRepository.GetAll()
+            };
 
-            var contacts = _contactRepository.GetAll();
-
-            return View();
+            return View(vm);
         }
     }
 }
